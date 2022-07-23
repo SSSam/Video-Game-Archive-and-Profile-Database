@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="landing/input.css">
+
+<form action="searchgame.php" method="post">
+    <h2>This Section returns games published after a certain year.</h2>
+    </br>The attributes you can select from are:
+    </br>
+    <li>Game_name</li>
+    <li>Published_year</li>
+    <li>C_name (Game Company Name)</li>
+    </br>
+    <label>Enter the Attributes with Comma Seprated</label></br>
+    <input name="game_name" type="text" placeholder="Type Here">
+    <br></br>
+    <label>Published After the Year of: </label></br>
+    <input name="Published_Year" type="text" placeholder="Type Here">
+    <br></br>
+    <input type="submit" value="Search">
+</form>
+
+<form action="searchgenre.php" method="post">
+  <h2>This Section returns game and its genre</h2>
+  </br>The attributes you can select from are:
+  </br>
+  <li>Genre_type</li>
+  <li>Game_name</li>
+  <li>Published_year</li>
+  </br>The types of genre are:
+  </br>
+  <li>Sandbox</li>
+  <li>Real-time strategy</li>
+  <li>Shooters(FPS and TPS)</li>
+  <li>Multiplayer online battle</li>
+  <li>Role-playing</li>
+  <li>Simulation and sports</li>
+  <li>Survival and horror</li>
+  <li>Platformer/Open World</li>
+  </br>
+  <label>Enter the Attributes with Comma Seprated</label></br>
+  <input name="game_name" type="text" placeholder="Type Here">
+  <br></br>
+  <label>Specify genre types you are interested in:</label></br>
+  <input name="genre_type" type="text" placeholder="Type Here">
+  <br></br>
+  <input type="submit" value="Search">
+</form>
+
+</br>
+<a href="landing/landing.html">Back to Main</a>
+<a href="landing/input.html">Update Info</a>
+<a href="database.php">View Database</a>
+<br></br>

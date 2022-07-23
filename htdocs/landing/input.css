@@ -1,0 +1,63 @@
+
+body {
+  background-image: url(bg.jpg);
+  background-color: #3F5EFB;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+form {
+  align-items: center;
+  padding: 13px 20px;
+  padding-left: px;
+  height: fit-content;
+  width: 50%;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #ffffff;
+  background-color: rgba(65, 76, 122, 0.7);
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+}
+
+form input {
+  background: transparent;
+  width: 200px;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+a{
+    background-color: rgba(255, 174, 0, 0.9);
+    border: none;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 13%;
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: large;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+    display: inline-block;
+    cursor: pointer;
+  }
+  a:hover {
+      opacity: 0.8;
+      background-color: rgba(0, 0, 0, 0.8);
+  }

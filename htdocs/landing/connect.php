@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="table.css">
-
 <?php
 function OpenCon()
 {

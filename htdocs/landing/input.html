@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="input.css">
+<form action="../insertgame.php" method="post">
+    <h2>Adding Game and Company</h2>
+    Game name: <input type="text" name = "gameName" id= "name"/><br/>
+    Published Year: <input type="number" name = "year" id="Published_Year" /><br/>
+    Game Company: <input type="text" name = "companyName" id= "companyName"/><br/>
+    <input type="submit" />
+</form>
+<br>
+<form action="../insertuser.php" method="post">
+    <h2>Adding Player</h2>
+    Player Name: <input type="text" name = "userName" id= "name"/><br/>
+    Joined Year: <input type="number" name = "year" id="Published_Year" /><br/>
+    <input type="submit" />
+</form>
+<br>
+<form action="../updateuser.php" method="post">
+    <h2>Update Player Name</h2>
+    Player ID: <input type="number" name = "User_ID" id= "name"/><br/>
+    Player New Name: <input type="text" name = "NewName" id= "name"/><br/>
+    <input type="submit" />
+</form>
+<br>
+
+<form action="../deleteuser.php" method="post">
+    <h2>Delete My Name</h2>
+    Player ID: <input type="number" name = "User_ID" id= "name"/><br/>
+    Are you sure? <input type="checkbox" name="concent" id="confirm"><br/>
+    <input type="submit" />
+</form>
+<br>
+
+</br>
+<a href="landing.html">Back to Main</a>
+<a href="../database.php">View Database</a>
+<a href="../search.html">Search in Database</a>
+<br></br>
+
+</html>
+
+
+
