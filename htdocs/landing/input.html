@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+    
   <link rel="stylesheet" href="input.css">
+  <h1>User & Game Input </h1>
 <form action="../insertgame.php" method="post">
-    <h2>Adding Game and Company</h2>
+    <h2>Adding Your Favourite Game </h2>
     Game name: <input type="text" name = "gameName" id= "name"/><br/>
     Published Year: <input type="number" name = "year" id="Published_Year" /><br/>
-    Game Company: <input type="text" name = "companyName" id= "companyName"/><br/>
     <input type="submit" />
 </form>
 <br>
@@ -20,6 +21,15 @@
     <h2>Update Player Name</h2>
     Player ID: <input type="number" name = "User_ID" id= "name"/><br/>
     Player New Name: <input type="text" name = "NewName" id= "name"/><br/>
+    <input type="submit" />
+</form>
+<br>
+
+<form action="../reviewgame.php" method="post">
+    <h2>Review Game</h2>
+    Player ID: <input type="number" name = "User_ID" id= "name"/><br/>
+    Game ID<input type="number" name = "G_ID" id= "Game ID"/><br/>
+    Rating out of 10<input type="number" name = "Rating" id= "Rating"/><br/>
     <input type="submit" />
 </form>
 <br>

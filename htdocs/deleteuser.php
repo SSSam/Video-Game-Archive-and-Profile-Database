@@ -14,12 +14,15 @@ $ID = $_POST['User_ID'];
 $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n".
 $conn -> error);
 
-$updateName= 'DELETE FROM `users` WHERE User_id= ?';
+$updateName= 'DELETE FROM `users` 
+WHERE User_id= ?';
+
+
 $stmt= $conn->prepare($updateName);
 $stmt->bind_param('i', $ID);
 $stmt->execute();
 
-echo "Delete Successfully... ";
+echo "<h1>Delete Successfully... </h1><br>";
 echo '<a href="landing/landing.html">Back to main</a><br>';
 echo '<a href="database.php">See Updated Database</a>';
 $conn -> close();

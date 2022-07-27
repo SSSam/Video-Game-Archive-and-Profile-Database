@@ -39,7 +39,8 @@ $sql = "SELECT $att_cols
 FROM game, game_company, published_by 
 WHERE Published_Year > $year_cols
 AND published_by.G_id= game.G_id
-AND published_by.C_id = game_company.C_id";
+AND published_by.C_id = game_company.C_id
+ORDER BY Published_Year ASC";
 myTable($conn,$sql);
 
 echo '<a href="landing/landing.html">Back to Main</a>';

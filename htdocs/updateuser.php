@@ -23,7 +23,8 @@ $stmt= $conn->prepare($updateName);
 $stmt->bind_param('si', $newName, $ID);
 $stmt->execute();
 
-echo "Update Successfully... ";
-echo '<a href="landing/landing.html">Back to main</a>';
+echo "<h1>Update Successfully... </h1><br>";
+echo '<a href="landing/landing.html">Back to main</a><br>';
+echo '<a href="database.php">See Updated Database</a>';
 $conn -> close();
 ?>

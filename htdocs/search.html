@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="landing/input.css">
+<h1>Searching in the Database</h1>
 
 <form action="searchgame.php" method="post">
     <h2>This Section returns games published after a certain year.</h2>
@@ -44,7 +45,30 @@
   <input type="submit" value="Search">
 </form>
 
-</br>
+<form action="searchPopularity.php" method="post">
+  <h2>This Section shows how popular the games are</h2>
+  <label>Monthly Active Users More than: </label></br>
+  <input name="Rating_Constraint" type="text" placeholder="Type Here">
+  <br>
+  <input type="submit" value="Search">
+</form>
+
+<form action="division.php" method="post">
+  <h2>This Section searches for super rater</h2>
+  <input type="submit" value="Search">
+</form>
+
+<form action="nestedaggregation.php" method="post">
+  <h2>This Section return the highest and the lowest rating game in this database. </h2>
+    <input type="submit" value="Search">
+</form>
+
+<form action="Platform.php" method="post">
+  <h2>This Section return Platform and games</h2>
+  <input type="submit" value="Search">
+</form>
+
+<br></br>
 <a href="landing/landing.html">Back to Main</a>
 <a href="landing/input.html">Update Info</a>
 <a href="database.php">View Database</a>

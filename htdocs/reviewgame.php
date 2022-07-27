@@ -12,18 +12,20 @@ $dbpass = "";
 $db = "video_game";
 
 
-$name = $_POST['userName'];
-$Joined_Year = $_POST['year'];
+$user = $_POST['User_ID'];
+$game = $_POST['G_ID'];
+$rating = $_POST['Rating'];
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n".
 $conn -> error);
 
 $stmt = $conn->prepare(
-    "INSERT INTO users( userName, Year_joined)
-    value(?, ?)");
-    
-$stmt->bind_param("si", $name, $Joined_Year);
+    "INSERT INTO rate( G_id, User_id, User_rating )
+    values (?, ?, ?)");
+
+$stmt->bind_param("iii", $game, $user, $rating);
 $stmt->execute();
+
 
 echo "<h1>Input Successfully... </h1><br>";
 echo '<a href="landing/landing.html">Back to main</a><br>';
