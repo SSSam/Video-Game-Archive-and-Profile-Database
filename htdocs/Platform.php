@@ -13,74 +13,69 @@ echo '<br>';
 echo '<h1>Video Game Platform Database</h1>';
 echo '<br>';
 
-$pc_game =
-"SELECT `game_name`, `CPU`, `GPU`, `RAM`
-FROM game, runs, platform, pc
-WHERE game.G_id = runs.G_id
-AND runs.Model_id = pc.Model_id
-AND platform.Model_id = pc.Model_id";
-
-$result = $conn->query($pc_game);
-if ($result->num_rows > 0) {
-    echo "<table><tr>
-    <th>Game Name</th>
-    <th>PC </th>
-    <th>GPU </th>
-    <th>RAM </th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-    echo
-    "</td><td>".$row['game_name'].
-    "</td><td>".$row['CPU'].
-    "</td><td>".$row['GPU'].
-    "</td><td>".$row['RAM'].
-    "</tr>";
+function myTable($obConn,$sql)
+{
+$rsResult = mysqli_query($obConn, $sql) or die(mysqli_error($obConn));
+if(mysqli_num_rows($rsResult)>0)
+{
+//We start with header. >>>Here we retrieve the fieldnames<<< 
+echo "<table width=\"100%\" border=\"0\"
+cellspacing=\"2\"
+cellpadding=\"0\"><tr align=\"center\">";
+$i = 0;
+while ($i < mysqli_num_fields($rsResult)){
+    $field = mysqli_fetch_field_direct($rsResult, $i);
+    $fieldName=$field->name;
+    echo "<th><strong>$fieldName</strong></th>";
+    $i = $i + 1;
     }
-    echo "</table>";}
-echo '<br></br>';
-
-$console_game =
-"SELECT `game_name`, `Generation`
-FROM game, runs, platform, console
-WHERE game.G_id = runs.G_id
-AND runs.Model_id = console.Model_id
-AND platform.Model_id = console.Model_id";
-
-$result = $conn->query($console_game);
-if ($result->num_rows > 0) {
-    echo "<table><tr>
-    <th>Game Name</th>
-    <th>Generation </th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-    echo
-    "</td><td>".$row['game_name'].
-    "</td><td>".$row['Generation'].
-    "</tr>";
+    echo "</tr>";
+    //>>>Field names retrieved<<<
+    //We dump info
+    while ($row = mysqli_fetch_assoc($rsResult)) {
+    echo "<tr>";
+    foreach($row as $data) {
+    echo "<td>$data</td>";
     }
-    echo "</table>";}
-echo '<br></br>';
-
-$mobile_game =
-"SELECT `game_name`, `OS`
-FROM game, runs, platform, mobile
-WHERE game.G_id = runs.G_id
-AND runs.Model_id = mobile.Model_id
-AND platform.Model_id = mobile.Model_id";
-
-$result = $conn->query($mobile_game);
-if ($result->num_rows > 0) {
-    echo "<table><tr>
-    <th>Game Name</th>
-    <th>OS </th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-    echo
-    "</td><td>".$row['game_name'].
-    "</td><td>".$row['OS'].
-    "</tr>";
+    echo "</tr>";
     }
-    echo "</table>";}
+    echo "</table>";
+}
+}
+
+include 'connect.php';
+$conn = OpenCon();
+$table= $_POST['join_table'];
+
+if($table == 'PC')
+$result_sql =
+"SELECT game.game_name as 'Game Name', `CPU`, `GPU`, `RAM`
+FROM game, $table
+JOIN runs on runs.Model_id = $table.Model_id
+JOIN platform on platform.Model_id = $table.Model_id
+Where game.G_id= runs.G_id";
+
+else if ($table == "Console"){
+$result_sql =
+"SELECT game.game_name as 'Game Name', `Generation`
+FROM game, $table
+JOIN runs on runs.Model_id = $table.Model_id
+JOIN platform on platform.Model_id = $table.Model_id
+Where game.G_id= runs.G_id";
+}
+else if($table== "Mobile"){
+$result_sql =
+"SELECT game.game_name as 'Game Name', `OS`
+FROM game, $table
+JOIN runs on runs.Model_id = $table.Model_id
+JOIN platform on platform.Model_id = $table.Model_id
+Where game.G_id= runs.G_id";
+}
+
+myTable($conn,$result_sql);
+
+
+
 echo '<br></br>';
 
 echo '<a href="landing/landing.html">Back to Main</a>';

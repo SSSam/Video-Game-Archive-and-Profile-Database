@@ -71,3 +71,6 @@ a{
     text-align: left;
     text-shadow: 2px 2px 4px rgba(11, 0, 51, 0.2);
   }
+  p{
+    text-indent: 3em;
+  }

@@ -39,7 +39,7 @@
   <label>Enter the Attributes with Comma Seprated</label></br>
   <input name="game_name" type="text" placeholder="Type Here">
   <br></br>
-  <label>Specify genre types you are interested in:</label></br>
+  <label>Specify which genre type you are interested in:</label></br>
   <input name="genre_type" type="text" placeholder="Type Here">
   <br></br>
   <input type="submit" value="Search">
@@ -65,6 +65,13 @@
 
 <form action="Platform.php" method="post">
   <h2>This Section return Platform and games</h2>
+  Which table to join? <br/>
+  <li>PC</li>
+  <li>Mobile</li>
+  <li>Console</li>
+  
+  <label>Enter the table you want to join with game</label></br>
+  <input name="join_table" type="text" placeholder="Type Here"></br>
   <input type="submit" value="Search">
 </form>
 

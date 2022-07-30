@@ -32,17 +32,19 @@ while ($i < mysqli_num_fields($conn)){
 //showing all the  user id's and names of users that have rated all games 
 include 'connect.php';
 $conn = OpenCon();
-$sql = "SELECT 'user_id', `userName` FROM users
-WHERE `user_id` not in ( SELECT `user_id` FROM( (SELECT `user_id`,g_id FROM (SELECT g_id FROM rate) as p 
-cross join
-(SELECT distinct `user_id` from users) as sp) 
-EXCEPT 
-(SELECT g_id, `user_id` FROM rate)) AS r)";
+// $sql = "SELECT 'user_id', `userName` FROM users
+// WHERE `user_id` not in ( SELECT `user_id` FROM( (SELECT `user_id`,g_id FROM (SELECT g_id FROM rate) as p 
+// cross join
+// (SELECT distinct `user_id` from users) as sp) 
+// EXCEPT 
+// (SELECT g_id, `user_id` FROM rate)) AS r)";
 
-$sqlFinal="SELECT  `userName` as 'All the users who rated All the games in this database' FROM users as s
-WHERE NOT EXISTS (( SELECT p.g_id FROM rate as p)
-EXCEPT 
-(SELECT SP.g_id FROM rate sp WHERE sp.user_id=s.user_id))";
+$sqlFinal="SELECT  `userName` as 'All the users who rated All the games in this database' 
+FROM users as s
+WHERE NOT EXISTS (
+    ( SELECT rated.g_id FROM rate as rated)
+    EXCEPT 
+    (SELECT SP.g_id FROM rate SP WHERE SP.user_id= s.user_id))";
 
 buildTable($conn,$sqlFinal);
 CloseCon($conn);

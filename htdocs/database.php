@@ -150,20 +150,22 @@ if ($result->num_rows > 0) {
 echo '<br></br>';
 
 $GameRate = 
-"SELECT game_name, AVG(User_rating) AS avgrating, count('*') AS 'Total Number of Rating' 
+"SELECT game.g_id, game_name, AVG(User_rating) AS avgrating, count('*') AS 'Total Number of Rating' 
 FROM game, rate 
 WHERE game.G_id= rate.g_id
-GROUP BY game_name";
+GROUP BY g_id, game_name";
 $result = $conn->query($GameRate);
 if ($result->num_rows > 0) {
     echo "<table><tr> 
+    <th > Game ID</th>
     <th >Game Name</th>
     <th >Rating</th>
     <th >Number of Rating</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) { 
     echo 
-    "<td>".$row['game_name'].
+    "<td>".$row['g_id'].
+    "</td><td> ".$row['game_name'].
     "</td><td> ".$row['avgrating'].
     "</td><td align= 'right'> ".$row[ 'Total Number of Rating'].
     "</tr>";
